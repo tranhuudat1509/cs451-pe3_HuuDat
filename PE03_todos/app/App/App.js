@@ -38,7 +38,7 @@ class App extends Component {
     }
 
     inputChange(inputValue) {
-        console.log(" Input Value: ", inputValue);
+        console.log("Input Value: ", inputValue);
         this.setState({ inputValue });
     }
 
@@ -52,16 +52,20 @@ class App extends Component {
             complete: false
         };
 
+        const updatedTodos = [...todos, newTodo];
+
         this.setState({
-            todos: [...todos, newTodo],
+            todos: updatedTodos,
             inputValue: "",
         });
+
+        // Required console.log for PE03 Part 1
+        console.log('Updated Todos:', updatedTodos);
     }
 
     render() {
         const { inputValue, todos, type } = this.state;
-        console.log("Current tab type:", this.state.type);
-
+        console.log("Current tab type:", type);
 
         // Filter todos based on active tab
         const filteredTodos = todos.filter(todo => {
